@@ -1,0 +1,45 @@
+<div *ngIf="isLoginError" class="red-text center error-message">
+  <i class="material-icons">error</i> Incorrect username or password
+</div>
+	<!--================Login Box Area =================-->
+	<section class="login_box_area p_120">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<img class="img-fluid" src="assets/img/login.jpg" alt="">
+						<div class="hover">
+							<h4>New to our website?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="main_btn" routerLink='/signup' >Create an Account</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner">
+            <h3>Log in to enter</h3>
+            <div *ngIf="isLoginError" class="red-text center error-message">
+                <i class="material-icons">error</i> Incorrect username or password
+            </div>
+            <form #loginForm="ngForm" 
+            (ngSubmit)="OnSubmit(UserName.value,Password.value)"  class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+							<div class="col-md-12 form-group">
+                              <i class="material-icons prefix">account_circle</i>
+
+								<input type="text" #UserName ngModel name="UserName" class="form-control" id="name"  placeholder="Username">
+							</div>
+							<div class="col-md-12 form-group">
+                                <i class="material-icons prefix">vpn_key</i>
+
+								<input type="password" #Password ngModel name="Password" class="form-control" id="name"  placeholder="Password">
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" [disabled]="!loginForm.valid"  value="submit" class="btn submit_btn">Log In</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->

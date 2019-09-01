@@ -1,0 +1,53 @@
+<h3>Cart Info</h3>
+
+
+<section class="cart_area">
+  <div class="container">
+    <div class="cart_inner">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Option</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+            <tr *ngFor="let item of items">
+                <td align="center">
+                    <a (click)="remove(item.product.ID)">X</a>
+                </td>
+              <td>
+                <div class="media">
+                  <div class="d-flex">
+                    <img src="http://localhost:50572/{{item.product.Images}}" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p>{{item.product.Name}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <h5>{{item.product.Price}}</h5>
+              </td>
+              <td>{{item.product.Price}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.product.Price * item.quantity}}</td>
+           
+            </tr>
+            <tr>
+                <td colspan="6" align="right">Total</td>
+                <td>{{total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
